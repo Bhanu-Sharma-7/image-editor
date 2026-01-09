@@ -8,58 +8,75 @@ html,
 body {
     height: 100%;
     width: 100%;
-}
-
-html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: var(--bg-primary-color);
     color: var(--text-primary-color);
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
 main {
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 main section {
     width: 100%;
-    padding: var(--padding-2xl);
+    max-width: 1600px;
+    padding: var(--padding-xl);
     display: flex;
-    gap: var(--gutter-lg);
+    gap: var(--gutter-xl);
+    align-items: stretch;
 }
 
 .btn {
-    padding: var(--padding-sm) var(--padding-lg);
+    padding: 12px 28px;
     border: none;
     outline: none;
     border-radius: var(--border-radius-md);
     background: var(--bg-active-color);
-    cursor: pointer;
     color: var(--text-active-color);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: var(--font-size-md);
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    opacity: 0.9;
 }
 
 #reset-btn {
     background: var(--bg-danger-color);
-    color: var(--text-primary-color);
+    color: white;
 }
 
 #download-btn {
     background: var(--bg-succes-color);
-    color: var(--text-primary-color);
+    color: white;
 }
 
 main section .left {
     display: flex;
     flex-direction: column;
     gap: var(--gutter-lg);
-    width: 70%;
-    align-items: center;
+    flex: 1;
 }
 
 main section .right {
-    width: 30%;
+    width: 420px;
     background: var(--bg-secondary-color);
-    padding: var(--padding-lg);
+    padding: var(--padding-xl);
     border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
 }
 
 main section .top {
@@ -74,108 +91,111 @@ main section .bottom {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: var(--padding-2xl);
-    aspect-ratio: 5/3;
+    flex: 1;
+    min-height: 650px;
+    padding: var(--padding-xl);
     border-radius: var(--border-radius-xl);
+    border: 2px dashed var(--border-color);
+    overflow: hidden;
 }
 
 main section .bottom .placeholder {
     display: flex;
     align-items: center;
     flex-direction: column;
-    opacity: 0.6;
+    color: var(--text-tertiary-color);
     gap: var(--gutter-md);
 }
 
 main section .bottom .placeholder i {
-    font-size: 10rem;
+    font-size: 8rem;
 }
 
 main section .bottom .placeholder p {
     font-size: var(--font-size-xl);
 }
 
-main section .right {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gutter-md);
+main section .right h2 {
+    margin-bottom: var(--margin-lg);
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
 }
 
 main section .right .filters {
     display: flex;
     flex-direction: column;
-    gap: var(--gutter-md);
+    gap: var(--gutter-lg);
+    flex: 1;
+    justify-content: space-evenly;
 }
 
 main section .right .filter {
     width: 100%;
 }
 
+main section .right .filter p {
+    text-transform: capitalize;
+    font-size: var(--font-size-md);
+    color: var(--text-secondary-color);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
 main section .right .filter input {
     width: 100%;
-    outline: none;
-    margin-top: var(--margin-sm);
+    cursor: pointer;
     appearance: none;
+    background: transparent;
 }
 
 main section .right .filter input::-webkit-slider-runnable-track {
-    background: var(--bg-active-color);
-    height: 3px;
-    border-radius: 2px;
+    background: var(--border-color);
+    height: 6px;
+    border-radius: 3px;
 }
 
 main section .right .filter input::-webkit-slider-thumb {
-    cursor: pointer;
     appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: red;
-    margin: -8.5px;
+    background: var(--bg-active-color);
+    margin-top: -7px;
+    border: 3px solid var(--bg-secondary-color);
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
 
 canvas {
-    max-width: 90%;
-    max-height: 80vh;
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
     display: none;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
-/* --- Responsiveness --- */
-
-/* Tablet and Small Screens (Max 1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
     main section {
-        flex-direction: column; /* Left aur Right vertical ho jayenge */
-        padding: var(--padding-lg);
+        flex-direction: column;
+        padding: var(--padding-md);
     }
 
-    main section .left, 
+    main section .left {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg-primary-color);
+        padding-bottom: var(--padding-md);
+    }
+
     main section .right {
-        width: 100%; /* Full width le lenge */
+        width: 100%;
+        height: auto;
     }
-
-    main section .bottom {
-        aspect-ratio: 4/3; /* Mobile par thoda square lagega */
-    }
-}
-
-/* Mobile Screens (Max 600px) */
-@media (max-width: 600px) {
-    main section .top {
-        flex-wrap: wrap; /* Buttons niche line mein aa jayenge agar jagah nahi hogi */
-        justify-content: center;
-    }
-
-    .btn {
-        width: 100%; /* Buttons full width ho jayenge */
-        text-align: center;
-    }
-
-    main section .bottom .placeholder i {
-        font-size: 5rem; /* Icon thoda chota */
-    }
-
-    main section .bottom .placeholder p {
-        font-size: var(--font-size-md);
+    
+    main section .right .filters {
+        gap: var(--gutter-lg);
     }
 }

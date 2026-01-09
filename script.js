@@ -119,6 +119,7 @@ imageInput.addEventListener('change', (e) => {
 })
 
 function applyFilters() {
+    if (!image) return;
     canvasCtx.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
     canvasCtx.filter = `
         brightness(${filters.brightness.value}${filters.brightness.unit})
@@ -131,7 +132,6 @@ function applyFilters() {
         opacity(${filters.opacity.value}${filters.opacity.unit})
         invert(${filters.invert.value}${filters.invert.unit})
     `.trim();
-
     canvasCtx.drawImage(image, 0, 0);
 }
 
