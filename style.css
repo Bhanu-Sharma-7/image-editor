@@ -95,7 +95,7 @@ main section .bottom .placeholder p {
     font-size: var(--font-size-xl);
 }
 
-main section .right{
+main section .right {
     display: flex;
     flex-direction: column;
     gap: var(--gutter-md);
@@ -132,4 +132,50 @@ main section .right .filter input::-webkit-slider-thumb {
     border-radius: 50%;
     background: red;
     margin: -8.5px;
+}
+
+canvas {
+    max-width: 90%;
+    max-height: 80vh;
+    display: none;
+}
+
+/* --- Responsiveness --- */
+
+/* Tablet and Small Screens (Max 1024px) */
+@media (max-width: 1024px) {
+    main section {
+        flex-direction: column; /* Left aur Right vertical ho jayenge */
+        padding: var(--padding-lg);
+    }
+
+    main section .left, 
+    main section .right {
+        width: 100%; /* Full width le lenge */
+    }
+
+    main section .bottom {
+        aspect-ratio: 4/3; /* Mobile par thoda square lagega */
+    }
+}
+
+/* Mobile Screens (Max 600px) */
+@media (max-width: 600px) {
+    main section .top {
+        flex-wrap: wrap; /* Buttons niche line mein aa jayenge agar jagah nahi hogi */
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%; /* Buttons full width ho jayenge */
+        text-align: center;
+    }
+
+    main section .bottom .placeholder i {
+        font-size: 5rem; /* Icon thoda chota */
+    }
+
+    main section .bottom .placeholder p {
+        font-size: var(--font-size-md);
+    }
 }
