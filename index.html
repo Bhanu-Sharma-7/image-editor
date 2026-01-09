@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image editor | HTML | CSS | JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="theme.css">
 </head>
+
 <body>
     <main>
         <section>
@@ -14,16 +17,30 @@
                 <div class="top">
                     <label for="image-input" class="btn">
                         Choose Image
-                    <input type="file" id="image-input" accept="image/*" hidden>
+                        <input type="file" id="image-input" accept="image/*" hidden>
                     </label>
                     <button class="btn" id="reset-btn">Reset</button>
                     <button class="btn" id="download-btn">Download</button>
                 </div>
-                <div class="bottom"></div>
+                <div class="bottom">
+                    <div class="placeholder">
+                        <i class="ri-image-line"></i>
+                        <p>No image choosing</p>
+                    </div>
+                </div>
             </div>
-            <div class="right"></div>
+            <div class="right">
+                <h2>Filters</h2>
+                <div class="filters">
+                    <div class="filter">
+                        <p>Brightness</p>
+                        <input name="brightness" value="100" type="range" min="0" max="200">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
