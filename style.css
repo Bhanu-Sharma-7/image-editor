@@ -183,19 +183,60 @@ canvas {
 
     main section .left {
         width: 100%;
-        position: sticky;
-        top: 0;
-        z-index: 100;
+        position: static;
         background: var(--bg-primary-color);
         padding-bottom: var(--padding-md);
+    }
+
+    main section .bottom {
+        min-height: 300px;
+        padding: var(--padding-md);
     }
 
     main section .right {
         width: 100%;
         height: auto;
     }
-    
+
     main section .right .filters {
         gap: var(--gutter-lg);
+    }
+
+    canvas {
+        max-height: 50vh;
+    }
+}
+@media (max-width: 380px) {
+    main section {
+        padding: 8px;
+        gap: 10px;
+    }
+
+    main section .bottom {
+        min-height: 200px;
+        padding: 8px;
+    }
+
+    main section .top {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        flex: 1;
+    }
+
+    main section .right {
+        padding: 12px;
+    }
+
+    main section .right h2 {
+        font-size: 1.2rem;
+    }
+
+    canvas {
+        max-height: 40vh;
     }
 }
