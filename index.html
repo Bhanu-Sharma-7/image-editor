@@ -4,38 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image editor | HTML | CSS | JS</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>ProImage | Advanced Online Image Editor</title>
+    <meta name="description" content="A powerful, professional online image editor. Apply custom filters like brightness, contrast, blur, and more directly in your browser.">
+    <meta name="keywords" content="image editor, photo editor, online image filters, browser photo editing">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="ProImage | Advanced Online Image Editor">
+    <meta property="og:description" content="Apply professional photo filters directly in your browser.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main>
-        <section>
-            <div class="left">
-                <div class="top">
-                    <label for="image-input" class="btn">
-                        Choose Image
-                        <input type="file" id="image-input" accept="image/*" hidden>
-                    </label>
-                    <button class="btn" id="reset-btn">Reset</button>
-                    <button class="btn" id="download-btn">Download</button>
-                </div>
-                <div class="bottom">
-                    <div class="placeholder">
-                        <i class="ri-image-line"></i>
-                        <p>No image choosing</p>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="ri-camera-lens-fill"></i> ProImage</h1>
+            <p>Advanced Browser-Based Editing</p>
+        </header>
+        
+        <main>
+            <section class="editor-section">
+                <div class="left">
+                    <div class="top">
+                        <label for="image-input" class="btn btn-primary" aria-label="Choose Image">
+                            <i class="ri-upload-cloud-2-line"></i> Choose Image
+                            <input type="file" id="image-input" accept="image/*" hidden>
+                        </label>
+                        <button class="btn btn-danger" id="reset-btn" aria-label="Reset Filters">
+                            <i class="ri-refresh-line"></i> Reset
+                        </button>
+                        <button class="btn btn-success" id="download-btn" aria-label="Download Image">
+                            <i class="ri-download-2-line"></i> Download
+                        </button>
                     </div>
-                    <canvas id="image-canvas"></canvas>
+                    <div class="bottom">
+                        <div class="placeholder">
+                            <i class="ri-image-add-line"></i>
+                            <p>No image selected</p>
+                            <span>Click 'Choose Image' to begin editing</span>
+                        </div>
+                        <canvas id="image-canvas"></canvas>
+                    </div>
                 </div>
-            </div>
-            <div class="right">
-                <h2>Filters</h2>
-                <div class="filters"></div>
-            </div>
-        </section>
-    </main>
+                <aside class="right">
+                    <div class="right-header">
+                        <h2><i class="ri-equalizer-line"></i> Adjustments</h2>
+                    </div>
+                    <div class="filters"></div>
+                </aside>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="ri-error-warning-fill"></i>
+        <span>Please select an image first!</span>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

@@ -61,14 +61,37 @@ const canvasCtx = imageCanvas.getContext('2d')
 const resetButton = document.querySelector('#reset-btn')
 const downloadButton = document.querySelector('#download-btn')
 const filtersContainer = document.querySelector('.filters')
+const toast = document.getElementById('toast')
 
 let file = null
 let image = null
+
+function showToast(message) {
+    if(message) toast.querySelector('span').innerText = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
 
 
 function createFilterElement(name, unit = "%", value, min, max) {
     const div = document.createElement('div')
     div.classList.add('filter')
+    
+    const header = document.createElement('div')
+    header.classList.add('filter-header')
+
+    const p = document.createElement('p')
+    p.innerText = name
+
+    const valueSpan = document.createElement('span')
+    valueSpan.classList.add('filter-value')
+    valueSpan.innerText = `${value}${unit}`
+
+    header.appendChild(p)
+    header.appendChild(valueSpan)
+
     const input = document.createElement('input')
     input.type = "range"
     input.min = min
@@ -76,18 +99,15 @@ function createFilterElement(name, unit = "%", value, min, max) {
     input.value = value
     input.id = name
 
-    const p = document.createElement('p')
-    p.innerText = name
-
-    div.appendChild(p)
+    div.appendChild(header)
     div.appendChild(input)
 
     input.addEventListener('input', (e) => {
         filters[name].value = input.value
+        valueSpan.innerText = `${input.value}${unit}`
         applyFilters()
     })
     return div
-
 }
 
 function createFilters() {
@@ -136,6 +156,10 @@ function applyFilters() {
 }
 
 resetButton.addEventListener('click', () => {
+    if (!image) {
+        showToast('Please select an image to reset!');
+        return;
+    }
     filters = {
         brightness: {
             value: 100,
@@ -198,6 +222,10 @@ resetButton.addEventListener('click', () => {
 })
 
 downloadButton.addEventListener('click', () => {
+    if (!image) {
+        showToast('Please select an image to download!');
+        return;
+    }
     const link = document.createElement('a')
     link.download = 'edited-image.png'
     link.href = imageCanvas.toDataURL()

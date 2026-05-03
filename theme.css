@@ -1,37 +1,54 @@
 :root {
-    --bg-primary-color: #0f1011;
-    --bg-secondary-color: #1a1c1e;
-    --bg-active-color: #ffffff;
-    --bg-danger-color: #ff4757;
-    --bg-succes-color: #2ed573;
-    --text-primary-color: #f1f2f6;
-    --text-secondary-color: #ced6e0;
-    --text-tertiary-color: #747d8c;
-    --text-active-color: #1e272e;
-    --border-color: #2f3542;
-    --padding-sm: 8px;
-    --padding-md: 12px;
-    --padding-lg: 20px;
-    --padding-xl: 32px;
-    --padding-2xl: 48px;
-    --margin-sm: 8px;
-    --margin-md: 12px;
-    --margin-lg: 20px;
-    --margin-xl: 32px;
-    --margin-2xl: 48px;
-    --gutter-sm: 8px;
-    --gutter-md: 16px;
-    --gutter-lg: 24px;
-    --gutter-xl: 32px;
-    --gutter-2xl: 40px;
-    --font-size-sm: 13px;
-    --font-size-md: 15px;
-    --font-size-lg: 18px;
-    --font-size-xl: 22px;
-    --font-size-2xl: 28px;
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 12px;
-    --border-radius-xl: 16px;
-    --border-radius-2xl: 24px;
+    /* Core Background Colors */
+    --bg-base: #0B0F19; /* Very deep blue/black */
+    --bg-panel: rgba(25, 30, 45, 0.6); /* Glassmorphism base */
+    --bg-panel-border: rgba(255, 255, 255, 0.08);
+    --bg-surface: #1E2333;
+    
+    /* Accents & States */
+    --accent-primary: #6366F1; /* Indigo */
+    --accent-primary-hover: #4F46E5;
+    --accent-glow: rgba(99, 102, 241, 0.4);
+    
+    --bg-danger: #EF4444;
+    --bg-danger-hover: #DC2626;
+    --bg-success: #10B981;
+    --bg-success-hover: #059669;
+
+    /* Text Colors */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-tertiary: #64748B;
+    --text-inverse: #FFFFFF;
+
+    /* Spacing System */
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+
+    /* Typography */
+    --font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 32px;
+
+    /* Borders & Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 20px var(--accent-glow);
+    --shadow-btn: 0 4px 14px 0 rgba(0, 0, 0, 0.25);
 }
